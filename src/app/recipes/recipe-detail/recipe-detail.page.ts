@@ -21,6 +21,7 @@ export class RecipeDetailPage implements OnInit {
       //valid parameter exists
       if (!param.has('recipeId')) {
         //redirect some where
+        this.router.navigate(['/recipes']);
       } 
       let recipeId = param.get('recipeId');
       this.LoadingRecipe = this.recipeService.getRecipeId(recipeId);
@@ -29,8 +30,8 @@ export class RecipeDetailPage implements OnInit {
 
   onDeleteRecipe(){
     this.alertCtrl.create({ 
-      header: 'Delete Recipe',
-      message:'Are you sure to delete recipe?',
+      header: 'Are you sure',
+      message:'Do you really want to delete recipe?',
       buttons:[{
         text:'Cancel',
         role:'cancel'
